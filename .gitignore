@@ -1,0 +1,23 @@
+node_modules
+.idea
+.env
+
+# Project exclude paths
+/src/services/commangs-manager.js
+/src/services/commangs-manager.js.map
+/src/services/message-responder.js
+/src/services/message-responder.js.map
+/src/services/ping-finder.js
+/src/services/ping-finder.js.map
+/src/bot.js
+/src/bot.js.map
+/src/index.js
+/src/index.js.map
+/src/inversify.config.js
+/src/inversify.config.js.map
+/src/types.js
+/src/types.js.map
+/tests/integration.tests.js
+/tests/integration.tests.js.map
+/tests/unit.tests.js
+/tests/unit.tests.js.map
