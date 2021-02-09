@@ -5,12 +5,15 @@ import {PingFinder} from '../src/services/ping-finder'
 import {MessageResponder} from '../src/services/message-responder'
 import {instance, mock, verify, when} from 'ts-mockito'
 import {Message} from 'discord.js'
+import {CommandsManager} from '../src/services/commangs-manager'
 
 describe('MessageResponder', () => {
 	let mockedPingFinderClass: PingFinder
 	let mockedPingFinderInstance: PingFinder
 	let mockedMessageClass: Message
 	let mockedMessageInstance: Message
+	let mockedCommandsManagerClass: CommandsManager
+	let mockedCommandsManagerInstance: CommandsManager
 
 	let service: MessageResponder
 
@@ -19,9 +22,12 @@ describe('MessageResponder', () => {
 		mockedPingFinderInstance = instance(mockedPingFinderClass)
 		mockedMessageClass = mock(Message)
 		mockedMessageInstance = instance(mockedMessageClass)
+		mockedCommandsManagerClass = mock(CommandsManager)
+		mockedCommandsManagerInstance = instance(mockedCommandsManagerClass)
+
 		setMessageContents()
 
-		service = new MessageResponder(mockedPingFinderInstance)
+		service = new MessageResponder(mockedPingFinderInstance, mockedCommandsManagerInstance)
 	})
 
 	it('should reply', async () => {

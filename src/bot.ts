@@ -23,15 +23,15 @@ export class Bot {
         this.client.on('message', async (message: Message) => {
             try {
                 if (message.author.bot) {
-                    return console.log('Ignoring bot message!')
+                    return console.log('Ignoring bot message')
                 }
                 console.log("Message received! Contents: ", message.content)
 
                 // await this.messageResponder.handle(message)
                 this.messageResponder.handle(message).then(() => {
-                    console.log('Response sent! :)')
+                    console.log('Action executed')
                 }).catch(() => {
-                    console.log('Response not sent :(')
+                    // console.log('Response not sent :(')
                 })
 
                 // console.log('Response sent!')

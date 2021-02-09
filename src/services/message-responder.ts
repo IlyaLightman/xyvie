@@ -14,6 +14,7 @@ export class MessageResponder {
 		@inject(TYPES.CommandsManager) commandsManager: CommandsManager
 	) {
 		this.pingFinder = pingFinder
+		this.commandsManager = commandsManager
 	}
 
 	public handle(message: Message): Promise<Message | Message[]> {
