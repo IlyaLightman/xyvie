@@ -15,6 +15,8 @@ export class MessageResponder {
 	) {
 		this.pingFinder = pingFinder
 		this.commandsManager = commandsManager
+
+		this.commandsManager.prepareCommands()
 	}
 
 	public handle(message: Message): Promise<Message | Message[]> {

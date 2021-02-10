@@ -14,6 +14,15 @@ export class CommandsManager {
 		args: string[]
 	): Promise<Message | Message[]> {
 		console.log(command, args)
+
+		const cmd = <Command>(this.commands.get(command)
+			|| this.commands.forEach(c => {
+				if (c.aliases.includes(command))
+					return this.commands.get(c.title)
+			}))
+
+		await cmd.execute(message, args)
+
 		return message
 	}
 
