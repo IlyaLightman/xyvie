@@ -3,6 +3,7 @@ import {inject, injectable} from 'inversify'
 import {TYPES} from './types'
 import {MessageResponder} from './services/message-responder'
 import {DatabaseManager} from './db/db-manager'
+import {IServer} from './db/server'
 
 @injectable()
 export class Bot {
@@ -32,14 +33,45 @@ export class Bot {
                     }
                     console.log("Message received! Contents: ", message.content)
 
-                    // await this.messageResponder.handle(message)
                     this.messageResponder.handle(message).then(() => {
                         console.log('Action executed')
-                    }).catch(() => {
-                        // console.log('Response not sent :(')
-                    })
+                    }).catch(() => { })
+                } catch (err) {
+                    console.log(err)
+                }
+            })
 
-                    // console.log('Response sent!')
+            this.client.on('guildCreate', async guild => {
+                try {
+                    await this.databaseManager.registerServer(<IServer>{
+                        id: guild.id,
+                        controllingLevels: {
+                            firstLevelRoles: [],
+                            secondLevelRoles: [],
+                            thirdLevelRoles: []
+                        },
+                        playlists: [],
+                        toxicityClassifier: false,
+                        toxicityClassifierSettings: {
+                            identity_attack: true,
+                            insult: true,
+                            obscene: true,
+                            severe_toxicity: true,
+                            sexual_explicit: true,
+                            threat: true,
+                            toxicity: true
+                        }
+                    })
+                    console.log(`New server ${guild.name} registered in the database`)
+                } catch (err) {
+                    console.log(err)
+                }
+            })
+
+            this.client.on('guildDelete', async guild => {
+                try {
+                    await this.databaseManager.deleteServer(guild.id)
+                    console.log(`Server ${guild.name} was deleted from the database`)
                 } catch (err) {
                     console.log(err)
                 }

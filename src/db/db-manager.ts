@@ -38,7 +38,7 @@ export class DatabaseManager {
 
 	public async deleteServer(id: string): Promise<string> {
 		try {
-			await Server.findByIdAndDelete(id)
+			await Server.findOneAndDelete({ id })
 			return 'Server deleted successfully'
 		} catch (err) {
 			console.log(err)
