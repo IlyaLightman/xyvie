@@ -26,6 +26,25 @@ export class DatabaseManager {
 		}
 	}
 
+	public async registerServer(srv: IServer): Promise<IServer> {
+		try {
+			const newServer = new Server(srv)
+			await newServer.save()
+			return <IServer>newServer
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+	public async deleteServer(id: string): Promise<string> {
+		try {
+			await Server.findByIdAndDelete(id)
+			return 'Server deleted successfully'
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
 	public async initializeDatabase(): Promise<void> {
 		try {
 			await mongoose.connect(process.env.MONGO, {
