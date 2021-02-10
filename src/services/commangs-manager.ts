@@ -27,7 +27,7 @@ export class CommandsManager {
 	}
 
 	public prepareCommands(): void {
-		const commandFiles = fs.readdirSync('../commands').filter(file => {
+		const commandFiles = fs.readdirSync('src/commands').filter(file => {
 			return file.endsWith('.ts')
 		})
 
