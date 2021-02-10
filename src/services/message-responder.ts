@@ -1,6 +1,6 @@
 import {Message} from 'discord.js'
 import {PingFinder} from './ping-finder'
-import {CommandsManager} from './commangs-manager'
+import {CommandsManager} from './commands-manager'
 import {inject, injectable} from 'inversify'
 import {TYPES} from '../types'
 

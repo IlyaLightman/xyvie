@@ -5,7 +5,7 @@ import {PingFinder} from '../src/services/ping-finder'
 import {MessageResponder} from '../src/services/message-responder'
 import {instance, mock, verify, when} from 'ts-mockito'
 import {Message} from 'discord.js'
-import {CommandsManager} from '../src/services/commangs-manager'
+import {CommandsManager} from '../src/services/commands-manager'
 
 describe('MessageResponder', () => {
 	let mockedPingFinderClass: PingFinder

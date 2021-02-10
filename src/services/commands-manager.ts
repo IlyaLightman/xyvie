@@ -1,6 +1,5 @@
 import {Message} from 'discord.js'
-import {inject, injectable} from 'inversify'
-import {TYPES} from '../types'
+import {injectable} from 'inversify'
 import {Command} from '../command'
 import * as fs from 'fs'
 
@@ -32,7 +31,7 @@ export class CommandsManager {
 		})
 
 		commandFiles.forEach(file => {
-			const command = <Command>require(`./commands/${file}`)
+			const command = <Command>require(`../commands/${file}`)
 			this.commands.set(command.title, command)
 		})
 	}

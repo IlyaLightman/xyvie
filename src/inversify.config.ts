@@ -5,7 +5,7 @@ import {Bot} from './bot'
 import {Client} from 'discord.js'
 import {MessageResponder} from './services/message-responder'
 import {PingFinder} from './services/ping-finder'
-import {CommandsManager} from './services/commangs-manager'
+import {CommandsManager} from './services/commands-manager'
 import {DatabaseManager} from './db/db-manager'
 
 const container = new Container()
