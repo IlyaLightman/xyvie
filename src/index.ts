@@ -10,3 +10,5 @@ bot.listen().then(() => {
 }).catch(err => {
 	console.log('Error', err)
 })
+
+// TODO: Replace all console.log with custom Logger

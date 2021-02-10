@@ -4,5 +4,6 @@ export const TYPES = {
 	Token: Symbol('Token'),
 	MessageResponder: Symbol('MessageResponder'),
 	PingFinder: Symbol('PingFinder'),
-	CommandsManager: Symbol('CommandsManager')
+	CommandsManager: Symbol('CommandsManager'),
+	DatabaseManager: Symbol('DatabaseManager')
 }
