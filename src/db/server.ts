@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose'
 
 export interface IServer extends mongoose.Document {
 	id: string
+	prefix: string
 	controllingLevels: {
 		firstLevelRoles: Array<string>,
 		secondLevelRoles: Array<string>,
@@ -26,6 +27,10 @@ export interface IServer extends mongoose.Document {
 export const ServerSchema = new mongoose.Schema({
 	id: {
 		type: String, require: true
+	},
+	prefix: {
+		type: String,
+		default: '$'
 	},
 	controllingLevels: {
 		// Zero level commands are for all
