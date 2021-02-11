@@ -4,7 +4,7 @@ import {IServer} from './server'
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const Server = require('./server')
+const { Server } = require('./server')
 
 @injectable()
 export class DatabaseManager {

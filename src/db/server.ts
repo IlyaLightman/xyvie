@@ -86,4 +86,4 @@ export const ServerSchema = new mongoose.Schema({
 })
 
 const Server = mongoose.model<IServer>('Server', ServerSchema)
-export default Server
+module.exports = { Server }
